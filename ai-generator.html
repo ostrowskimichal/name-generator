@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wielkanocne Imię z AI 🐣</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        padding: 40px;
+        background: #f7f9fc;
+      }
+      form {
+        background: #fff;
+        display: inline-block;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+      input,
+      select,
+      button {
+        display: block;
+        margin: 15px auto;
+        padding: 10px;
+        font-size: 16px;
+        width: 250px;
+      }
+      #result {
+        margin-top: 30px;
+        font-size: 20px;
+        color: #4caf50;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: #040649;">🎉 Wygeneruj swoje Wielkanocne Imię AI!</h1>
+    <div style="display: flex; justify-content: space-between; margin: 0 auto; width: fit-content; gap: 96px">
+    <div>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" id="name" placeholder="Twoje imię" required />
+      <select style="background-color: #040649; color: white; border-radius: 8px;" id="department">
+        <option value="Administration">Administracja / Księgowość / Finanse</option>
+        <option value="IT">Programowanie / Testowanie / R&D</option>
+        <option value="SAP">Specjaliści SAP / OpenText</option>
+        <option value="Marketing">Sprzedaż / Marketing</option>
+        <option value="HR">HR / Kadry / Rekrutacja</option>
+        <option value="PMO">Zarządzanie Projektami / PMO</option>
+      </select>
+      <select style="background-color: #040649; color: white; border-radius: 8px;"  id="month">
+        <option>Styczeń</option>
+        <option>Luty</option>
+        <option>Marzec</option>
+        <option>Kwiecień</option>
+        <option>Maj</option>
+        <option>Czerwiec</option>
+        <option>Lipiec</option>
+        <option>Sierpień</option>
+        <option>Wrzesień</option>
+        <option>Październik</option>
+        <option>Listopad</option>
+        <option>Grudzień</option>
+      </select>
+      <button style="background-color: #3c2ced; border-radius: 8px; color: white; cursor: ;" type="submit">Generuj imię AI 🐣</button>
+    </form>
+  </div>
+  <div style="max-width: 300px;">
+    <img src="zajac.png" style="width: 100%; width: 100%; border-radius: 12px;" />
+  </div>
+</div>
+    <p id="result"></p>
+
+    <p style="color: #040649; font-size: 32px; margin-top: 48px;">AI Protocol: Wesołych Świąt aktywowany!</p>
+    <img src="lukardi_logo.PNG" alt="lukardi logo" style="max-width: 350px;" />
+
+    <script>
+      const adjectives = {
+        A: "Złoty",
+        B: "Złoty",
+        C: "Złoty",
+        D: "Turbo",
+        E: "Turbo",
+        F: "Turbo",
+        G: "Fioletowy",
+        H: "Fioletowy",
+        I: "Fioletowy",
+        J: "Szalony",
+        K: "Szalony",
+        L: "Szalony",
+        M: "Mega",
+        N: "Mega",
+        O: "Mega",
+        P: "Błyszczący",
+        Q: "Błyszczący",
+        R: "Błyszczący",
+        S: "Leniwy",
+        T: "Leniwy",
+        U: "Leniwy",
+        V: "Kosmiczny",
+        W: "Kosmiczny",
+        X: "Kosmiczny",
+        Y: "Kosmiczny",
+        Z: "Kosmiczny",
+      };
+
+      const departments = {
+        Administration: "Jajko",
+        IT: "Pisanka",
+        SAP: "Kurczak",
+        Marketing: "Zajączek",
+        HR: "Bazie",
+        PMO: "Palma",
+      };
+
+      const endings = {
+        Styczeń: "404",
+        Luty: "404",
+        Marzec: "Quantum.v1",
+        Kwiecień: "Quantum.v1",
+        Maj: ".AI",
+        Czerwiec: ".AI",
+        Lipiec: "GPT",
+        Sierpień: "GPT",
+        Wrzesień: "v2.0",
+        Październik: "v2.0",
+        Listopad: "Nebula",
+        Grudzień: "Nebula",
+      };
+
+      function generateName(name, department, month) {
+        const firstLetter = name.trim().charAt(0).toUpperCase();
+        const adj = adjectives[firstLetter] || "Kosmiczny";
+        const base = departments[department] || "Jajo";
+        const end = endings[month] || ".AI";
+        return `${adj} ${base}${end}`;
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const department = document.getElementById("department").value;
+        const month = document.getElementById("month").value;
+        const result = generateName(name, department, month);
+        document.getElementById(
+          "result"
+        ).innerText = `Twoje wielkanocne imię AI to: ${result}`;
+      }
+    </script>
+  </body>
+</html>
