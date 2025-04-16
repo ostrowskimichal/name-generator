@@ -9,6 +9,11 @@
         text-align: center;
         padding: 40px;
         background: #f7f9fc;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
       }
       form {
         background: #fff;
@@ -21,7 +26,6 @@
       select,
       button {
         display: block;
-        margin: 15px auto;
         padding: 10px;
         font-size: 16px;
         width: 250px;
@@ -40,6 +44,8 @@
     <div>
     <form onsubmit="handleSubmit(event)">
       <input type="text" id="name" placeholder="Twoje imię" required />
+      <div style="display: flex; flex-direction: column; align-items: flex-start; margin-block: 12px;">
+        <p style="margin: 4px 0;">Dział</p>
       <select style="background-color: #040649; color: white; border-radius: 8px;" id="department">
         <option value="Administration">Administracja / Księgowość / Finanse</option>
         <option value="IT">Programowanie / Testowanie / R&D</option>
@@ -48,6 +54,10 @@
         <option value="HR">HR / Kadry / Rekrutacja</option>
         <option value="PMO">Zarządzanie Projektami / PMO</option>
       </select>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+      <p style="margin: 4px 0;">Miesiąc urodzenia
+      </p>
       <select style="background-color: #040649; color: white; border-radius: 8px;"  id="month">
         <option>Styczeń</option>
         <option>Luty</option>
@@ -62,11 +72,12 @@
         <option>Listopad</option>
         <option>Grudzień</option>
       </select>
-      <button style="background-color: #3c2ced; border-radius: 8px; color: white; cursor: ;" type="submit">Generuj imię AI 🐣</button>
+      </div>
+      <button style="background-color: #3c2ced; border-radius: 8px; color: white; cursor: pointer; margin-top: 12px;" type="submit">Generuj imię AI 🐣</button>
     </form>
   </div>
   <div style="max-width: 300px;">
-    <img src="zajac.png" style="width: 100%; width: 100%; border-radius: 12px;" />
+    <img src="zajac.png" style="width: 100%; height: 100%; border-radius: 12px;" />
   </div>
 </div>
     <p style="font-size: 22px;" id="result"></p>
